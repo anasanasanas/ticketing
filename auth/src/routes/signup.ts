@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import { User } from '../models/user';
 import { BadRequestError } from '../errors/bad-request-error';
 import { validateRequest } from '../middleware/validate-request';
+import { currentUser } from '../middleware/current-user';
 import 'express-async-errors'
 
 const router = express.Router();
@@ -21,6 +22,7 @@ router.post('/api/users/signup', [
         .withMessage('Password must be between 4 and 20 characters!')
 ],
     validateRequest,
+    currentUser,
     async (req: Request, res: Response) => {
 
         const { email, password } = req.body;
