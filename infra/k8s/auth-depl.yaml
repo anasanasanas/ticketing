@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: auth
-          image: anasalaa/auth
+          image: anasanasanas/auth
           env:
             - name: JWT_KEY
               valueFrom:
