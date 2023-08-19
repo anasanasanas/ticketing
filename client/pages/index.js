@@ -13,7 +13,6 @@ LandingPage.getInitialProps = async (context) => {
         return data
     }
     catch (err) {
-        console.log(err);
     }
     return {};
 }
