@@ -1,6 +1,5 @@
 import express from 'express';
-import { currentUser } from '../middleware/current-user';
-import { requireAuth } from '../middleware/require-auth';
+import { currentUser, requireAuth } from '@jaxeam/common';
 import 'express-async-errors'
 
 const router = express.Router();

@@ -6,7 +6,7 @@ import { BadRequestError } from '../errors/bad-request-error';
 import { validateRequest } from '../middleware/validate-request';
 import { User } from '../models/user';
 import { Password } from '../services/password';
-import { currentUser } from '../middleware/current-user';
+import { currentUser } from '@jaxeam/common';
 
 import 'express-async-errors'
 
