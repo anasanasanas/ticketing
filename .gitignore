@@ -1,3 +1,10 @@
+# Auth files
 /auth/node_modules
+
+# Client files
 /client/node_modules
 /client/.next
+
+# Common files
+/common/node_modules
+/common/build
