@@ -4,7 +4,7 @@ import requests from 'supertest';
 import { app } from '../app';
 
 declare global {
-    var signup: () => Promise<string[]>;
+    var cookie: () => string;
 }
 
 
@@ -31,17 +31,6 @@ afterAll(async () => {
 })
 
 
-global.signup = async () => {
-    const email = 'test@example.com'
-    const password = '12345678'
-
-    const response = await requests(app)
-        .post('/api/users/signup')
-        .send({
-            email,
-            password
-        })
-        .expect(201);
-    const cookie = response.get('Set-Cookie')
-    return cookie
+global.cookie = () => {
+    return 'session=eyJqd3QiOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKcFpDSTZJalkwWlRNNFltVTBOREZtTkRsaU9UZzRaVFkxTVRZMllpSXNJbVZ0WVdsc0lqb2lZVzVoYzBCbGVHRnRjR3hsTG1OdmJTSXNJbWxoZENJNk1UWTVNall6TkRBNE5IMC52OF9jWkI2YjBlSVVBa0M3eEVrMnhZdnNRMUE5dUdhc0YxQlVUc0FPVU5FIn0='
 }

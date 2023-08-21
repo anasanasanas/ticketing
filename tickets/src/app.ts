@@ -1,7 +1,8 @@
 import { json } from 'body-parser';
 import express, { Request, Response } from 'express';
 import cookieSession from 'cookie-session';
-import { errorHandler, NotFoundError } from '@jaxeam/common';
+import { errorHandler, NotFoundError, currentUser } from '@jaxeam/common';
+import { createTicketRouter } from './routes/new';
 import 'express-async-errors';
 
 export const app = express();
@@ -13,7 +14,8 @@ app.use(cookieSession({
     secure: process.env.NODE_ENV !== 'test'
 }));
 
-// TODO: `Add routers`
+app.use(currentUser);
+app.use(createTicketRouter);
 
 // Handle all routes that are not found other than the ones above
 app.all('*', async (req: Request, res: Response) => {
