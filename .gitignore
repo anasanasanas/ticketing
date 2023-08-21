@@ -1,6 +1,9 @@
 # Auth files
 /auth/node_modules
 
+# Tickets files
+/tickets/node_modules
+
 # Client files
 /client/node_modules
 /client/.next
