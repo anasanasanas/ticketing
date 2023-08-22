@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 import { app } from '../app';
 
 declare global {
-    var cookie: () => string;
+    var cookie: (userId?:string) => string;
 }
 
 
@@ -31,9 +31,9 @@ afterAll(async () => {
 })
 
 
-global.cookie = () => {
+global.cookie = (userId:string = '123456') => {
     const payload = {
-        id: '1234',
+        id: `${userId}`,
         email: 'anas@example.com',
     }
 

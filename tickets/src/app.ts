@@ -28,7 +28,6 @@ app.use(indexTicketRouter);
 app.use(updateTicketRouter);
 
 
-
 // Handle all routes that are not found other than the ones above
 app.all('*', async (req: Request, res: Response) => {
     throw new NotFoundError();
