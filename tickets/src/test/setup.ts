@@ -1,6 +1,6 @@
 import { MongoMemoryServer } from 'mongodb-memory-server'
 import mongoose from 'mongoose'
-import requests from 'supertest';
+import jwt from 'jsonwebtoken';
 import { app } from '../app';
 
 declare global {
@@ -32,5 +32,16 @@ afterAll(async () => {
 
 
 global.cookie = () => {
-    return 'session=eyJqd3QiOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKcFpDSTZJalkwWlRNNFltVTBOREZtTkRsaU9UZzRaVFkxTVRZMllpSXNJbVZ0WVdsc0lqb2lZVzVoYzBCbGVHRnRjR3hsTG1OdmJTSXNJbWxoZENJNk1UWTVNall6TkRBNE5IMC52OF9jWkI2YjBlSVVBa0M3eEVrMnhZdnNRMUE5dUdhc0YxQlVUc0FPVU5FIn0='
+    const payload = {
+        id: '1234',
+        email: 'anas@example.com',
+    }
+
+    const jwt_token = jwt.sign(payload, process.env.JWT_KEY!)
+
+    const session_json = JSON.stringify({ jwt: jwt_token })
+
+    const base64 = Buffer.from(session_json).toString('base64')
+
+    return `session=${base64}`
 }
