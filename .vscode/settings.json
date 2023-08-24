@@ -4,6 +4,7 @@
         "currentuser",
         "depl",
         "jaxeam",
+        "nats",
         "signin",
         "signout",
         "skaffold"
