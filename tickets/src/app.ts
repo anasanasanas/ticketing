@@ -9,9 +9,6 @@ import { updateTicketRouter } from './routes/update';
 
 import 'express-async-errors';
 
-
-
-
 export const app = express();
 
 app.set('trust proxy', true);
