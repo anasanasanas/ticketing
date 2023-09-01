@@ -2,8 +2,6 @@ import { json } from 'body-parser';
 import express, { Request, Response } from 'express';
 import cookieSession from 'cookie-session';
 import { errorHandler, NotFoundError, currentUser } from '@jaxeam/common';
-
-
 import 'express-async-errors';
 
 export const app = express();
