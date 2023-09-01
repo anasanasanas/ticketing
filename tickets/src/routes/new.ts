@@ -2,7 +2,6 @@ import express, { Request, Response } from "express";
 import { body } from "express-validator";
 import { requireAuth, validateRequest } from "@jaxeam/common";
 import { Ticket } from "../models/ticket";
-import { TicketCreatedPublisher } from "../events/publishers/ticket-created-publisher";
 import 'express-async-errors';
 
 const router = express.Router();
@@ -28,13 +27,6 @@ router.post(
             price,
             userId: req.currentUser!.id,
         }).save();
-
-        // await new TicketCreatedPublisher(client).publish({
-        //     id: model.id,
-        //     title: model.title,
-        //     price: model.price,
-        //     userId: model.userId
-        // });
 
         res.status(201).send(model);
     }

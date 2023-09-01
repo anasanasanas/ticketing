@@ -23,6 +23,14 @@ build:
             dest: .
       docker:
         dockerfile: Dockerfile
+    - image: anasanasanas/orders
+      context: orders
+      sync:
+        manual:
+          - src: '**/*.js'
+            dest: .
+      docker:
+        dockerfile: Dockerfile
     - image: anasanasanas/client
       context: client
       sync:

@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
-import 'express-async-errors';
 import { app }from './app'
-import { natsWrapper } from './nats-wrapper';
+import 'express-async-errors';
 
 const start = async () => {
     if (!process.env.JWT_KEY) {
@@ -11,8 +10,6 @@ const start = async () => {
         throw new Error('MONGO_URI must be defined!');
     }
     try {
-        console.log('Starting up...');
-        await natsWrapper.connect('ticketing', 'weq', 'http://nats-srv:4222');
         await mongoose.connect(process.env.MONGO_URI, {});
         console.log('Connected to MongoDB!');
     } catch (err) {
