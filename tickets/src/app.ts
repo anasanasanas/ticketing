@@ -19,6 +19,8 @@ app.use(cookieSession({
 }));
 
 app.use(currentUser);
+
+// Add routes to the app
 app.use(createTicketRouter);
 app.use(showTicketRouter);
 app.use(indexTicketRouter);
