@@ -14,3 +14,6 @@
 
 # Orders files
 /orders/node_modules
+
+# expiration files
+/expiration/node_modules
