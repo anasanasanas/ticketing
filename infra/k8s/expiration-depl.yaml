@@ -19,6 +19,11 @@ spec:
           env:
             - name: REDIS_HOST
               value: expiration-redis-srv
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
 ---
 # expiration cluster ip service
 apiVersion: v1
