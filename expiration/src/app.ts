@@ -2,7 +2,7 @@ import { json } from 'body-parser';
 import express, { Request, Response } from 'express';
 import cookieSession from 'cookie-session';
 import { errorHandler, NotFoundError, currentUser } from '@jaxeam/common';
-
+import { newExpirationRouter } from './routes/new';
 import 'express-async-errors';
 
 export const app = express();
@@ -17,7 +17,7 @@ app.use(cookieSession({
 app.use(currentUser);
 
 // Add routes to the app
-
+app.use(newExpirationRouter)
 
 // Handle all routes that are not found other than the ones above
 app.all('*', async (req: Request, res: Response) => {
