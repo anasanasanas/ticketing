@@ -17,3 +17,6 @@
 
 # expiration files
 /expiration/node_modules
+
+# Payments files
+/payments/node_modules
